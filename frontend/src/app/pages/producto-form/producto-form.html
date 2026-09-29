@@ -1,0 +1,58 @@
+<section class="contenedor formulario">
+    <h2>{{ idProducto() ? 'Editar producto' : 'Nuevo producto' }}</h2>
+  
+    @if (error()) {
+      <p class="alerta">{{ error() }}</p>
+    }
+  
+    <!-- [formGroup] conecta este HTML con el formulario del .ts -->
+    <form [formGroup]="form" (ngSubmit)="guardar()">
+      <div class="campo">
+        <label for="nombre">Nombre *</label>
+        <input id="nombre" type="text" formControlName="nombre" />
+        @if (tieneError('nombre', 'required')) {
+          <small class="error">El nombre es obligatorio.</small>
+        }
+        @if (tieneError('nombre', 'maxlength')) {
+          <small class="error">Máximo 100 caracteres.</small>
+        }
+      </div>
+  
+      <div class="campo">
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" rows="3" formControlName="descripcion"></textarea>
+        @if (tieneError('descripcion', 'maxlength')) {
+          <small class="error">Máximo 255 caracteres.</small>
+        }
+      </div>
+  
+      <div class="campo">
+        <label for="precio">Precio (S/) *</label>
+        <input id="precio" type="number" step="0.01" formControlName="precio" />
+        @if (tieneError('precio', 'required')) {
+          <small class="error">El precio es obligatorio.</small>
+        }
+        @if (tieneError('precio', 'min')) {
+          <small class="error">El precio debe ser mayor a 0.</small>
+        }
+      </div>
+  
+      <div class="campo">
+        <label for="stock">Stock *</label>
+        <input id="stock" type="number" step="1" formControlName="stock" />
+        @if (tieneError('stock', 'required')) {
+          <small class="error">El stock es obligatorio.</small>
+        }
+        @if (tieneError('stock', 'min')) {
+          <small class="error">El stock no puede ser negativo.</small>
+        }
+      </div>
+  
+      <div class="botones">
+        <a routerLink="/producto" class="btn btn-secundario">Cancelar</a>
+        <button type="submit" class="btn btn-primario" [disabled]="guardando()">
+          {{ guardando() ? 'Guardando...' : 'Guardar' }}
+        </button>
+      </div>
+    </form>
+  </section>

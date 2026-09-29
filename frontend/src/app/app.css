@@ -1,0 +1,15 @@
+.barra {
+    background: #1f3a5f;
+    padding: 14px 24px;
+  }
+  
+  .logo {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  
+  main {
+    padding: 24px;
+  }

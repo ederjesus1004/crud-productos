@@ -1,0 +1,51 @@
+<section class="contenedor">
+  <div class="encabezado">
+    <h2>Productos</h2>
+    <a routerLink="/producto/nuevo" class="btn btn-primario">+ Nuevo producto</a>
+  </div>
+
+  @if (error()) {
+    <p class="alerta">{{ error() }}</p>
+  }
+
+  @if (cargando()) {
+    <p>Cargando...</p>
+  } @else {
+    <table class="tabla">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Precio</th>
+          <th>Stock</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- track le dice a Angular cómo identificar cada fila -->
+        @for (producto of productos(); track producto.id) {
+          <tr>
+            <td>{{ producto.id }}</td>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.descripcion || '-' }}</td>
+            <td>{{ producto.precio | currency: 'PEN' : 'S/ ' }}</td>
+            <td>{{ producto.stock }}</td>
+            <td class="acciones">
+              <a [routerLink]="['/producto/editar', producto.id]" class="btn btn-secundario"
+                >Editar</a
+              >
+              <button type="button" class="btn btn-peligro" (click)="eliminar(producto)">
+                Eliminar
+              </button>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="6" class="vacio">Todavía no hay productos. Crea el primero.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</section>

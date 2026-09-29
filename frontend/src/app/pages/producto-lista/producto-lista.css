@@ -1,0 +1,33 @@
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .tabla {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+  }
+  
+  .tabla th,
+  .tabla td {
+    padding: 10px;
+    border-bottom: 1px solid #e2e2e2;
+    text-align: left;
+  }
+  
+  .tabla th {
+    background: #f0f2f5;
+  }
+  
+  .acciones {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .vacio {
+    text-align: center;
+    color: #777;
+  }

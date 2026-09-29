@@ -1,0 +1,51 @@
+/* Estilos globales: se aplican a toda la app */
+
+body {
+    margin: 0;
+    font-family: system-ui, Arial, sans-serif;
+    background: #f7f8fa;
+    color: #222;
+  }
+  
+  .contenedor {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  
+  /* Botones reutilizables */
+  .btn {
+    display: inline-block;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font: inherit;
+    text-decoration: none;
+  }
+  
+  .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .btn-primario {
+    background: #1f6feb;
+    color: #fff;
+  }
+  
+  .btn-secundario {
+    background: #e4e7eb;
+    color: #222;
+  }
+  
+  .btn-peligro {
+    background: #d64545;
+    color: #fff;
+  }
+  
+  .alerta {
+    background: #fdecea;
+    color: #a12622;
+    padding: 10px;
+    border-radius: 4px;
+  }
