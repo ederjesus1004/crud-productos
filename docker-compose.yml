@@ -1,0 +1,17 @@
+# Levanta PostgreSQL en un contenedor para no instalarlo en tu PC
+services:
+  postgres:
+    image: postgres:16
+    container_name: productos-postgres
+    environment:
+      POSTGRES_DB: productos_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      # Guarda los datos aunque apagues el contenedor
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
